@@ -15,7 +15,7 @@ def email2kindle(email_file_path: str):
     """Send the file to kindle"""
 
     # Load config file
-    with open(r"../config.yaml") as file:
+    with open(r"./config.yaml") as file:
         configs = yaml.full_load(file)
 
     # server of the sending mail

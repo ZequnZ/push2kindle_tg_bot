@@ -6,33 +6,36 @@ import yaml
 
 from utils import email2kindle, epub2mobi
 
-# Load config file
-with open(r"./config.yaml") as file:
-    configs = yaml.full_load(file)
-token = configs["token"]
-bot = tg.Bot(token=token)
-message_url = f"https://api.telegram.org/bot{token}/getupdates"
-file_url = f"https://api.telegram.org/bot{token}/getfiles?"
-my_id = configs["my_id"]
-supported_format = [
-    "mobi",
-    "azw",
-    "doc",
-    "docx",
-    "html",
-    "rtf",
-    "txt",
-    "jpg",
-    "jpeg",
-    "gif",
-    "png",
-    "bmp",
-    "pdf",
-]
-trans_format = ["epub"]
+
 
 
 def main():
+
+    # Load config file
+    with open(r"./config.yaml") as file:
+        configs = yaml.full_load(file)
+    token = configs["token"]
+    bot = tg.Bot(token=token)
+    message_url = f"https://api.telegram.org/bot{token}/getupdates"
+    file_url = f"https://api.telegram.org/bot{token}/getfiles?"
+    my_id = configs["my_id"]
+    supported_format = [
+        "mobi",
+        "azw",
+        "doc",
+        "docx",
+        "html",
+        "rtf",
+        "txt",
+        "jpg",
+        "jpeg",
+        "gif",
+        "png",
+        "bmp",
+        "pdf",
+    ]
+    trans_format = ["epub"]
+
     message_id = 0
     while True:
         try:
