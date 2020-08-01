@@ -11,7 +11,7 @@ import sys
 import yaml
 
 
-def email2kindle(email_file_path: str):
+def email2kindle(email_file_path: str, receiver:str=None):
     """Send the file to kindle"""
 
     # Load config file
@@ -24,7 +24,8 @@ def email2kindle(email_file_path: str):
     password = configs["password"]
     sender = configs["sender"]
     # Receiver (kindle)
-    receiver = configs["receiver"]
+    if receiver is None:
+        receiver = configs["receiver"]
 
     # subject
     subject = "book from push2kindle"
